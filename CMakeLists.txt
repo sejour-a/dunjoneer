@@ -13,7 +13,7 @@ if (APPLE)
     set(OSX_LIBRARIES ${CARBON_LIBRARY} ${COCOA_LIBRARY} ${IOKIT_LIBRARY})
 endif (APPLE)
 
-include_directories(${IRRLICHT_INCLUDE_DIR} ${OPENGL_INCLUDE_DIR})
+include_directories(${IRRLICHT_INCLUDE_DIR} ${OPENGL_INCLUDE_DIR} ${PROJECT_SOURCE_DIR}/include)
 
 set(DUNJONEER_SOURCE_FILES
         src/main.cpp)
