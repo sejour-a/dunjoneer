@@ -5,7 +5,7 @@
 #ifndef DUNJONEER_OBJECT_HPP
 #define DUNJONEER_OBJECT_HPP
 
-#include "IEntity.hpp"
+#include <IEntity.hpp>
 
 class Object : public IEntity
 {
@@ -28,22 +28,21 @@ protected:
 
 public:
                     Object(t_irrDevice *newDevice);
-
-                    ~Object();
-
-    ///////////
-    //SETTERS////////////////////////////////////////////////////////////////////////////////
-    virtual void    setPos      (   const   t_vec3df        &newPos     )   =   0;//DEFAULT//
-    virtual void    setAcc      (   const   t_vec3df        &newAcc     )   =   0;//DEFAULT//
-    virtual void    setSpeed    (   const   float           &newSpeed   )   =   0;//DEFAULT//
-    /////////////////////////////////////////////////////////////////////////////////////////
+    virtual         ~Object();
 
     ///////////
-    //GETTERS////////////////////////////////////////////////////////
-    virtual t_vec3df    const   &getPos()   const   =   0;//DEFAULT//
-    virtual t_vec3df    const   &getAcc()   const   =   0;//DEFAULT//
-    virtual float       const   &getSpeed() const   =   0;//DEFAULT//
-    /////////////////////////////////////////////////////////////////
+    //SETTERS////////////////////////////////////////////////////////////////////////
+    virtual void    setPos      (   const   t_vec3df        &newPos     );//DEFAULT//
+    virtual void    setAcc      (   const   t_vec3df        &newAcc     );//DEFAULT//
+    virtual void    setSpeed    (   const   float           &newSpeed   );//DEFAULT//
+    /////////////////////////////////////////////////////////////////////////////////
+
+    ///////////
+    //GETTERS////////////////////////////////////////////////
+    virtual t_vec3df    const   &getPos()   const;//DEFAULT//
+    virtual t_vec3df    const   &getAcc()   const;//DEFAULT//
+    virtual float       const   &getSpeed() const;//DEFAULT//
+    /////////////////////////////////////////////////////////
 };
 
 #endif //DUNJONEER_OBJECT_HPP

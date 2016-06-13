@@ -5,10 +5,10 @@
 #ifndef DUNJONEER_DEBUG_H
 #define DUNJONEER_DEBUG_H
 
-#define DEBUG_0         0x00000000
-#define DEBUG_1         0x0000000F
-#define DEBUG_2         0x000000FF
-#define DEBUG_3         0x00000FFF
+#define DEBUG_0         0x0
+#define DEBUG_1         0x1
+#define DEBUG_2         0x2
+#define DEBUG_3         0x3
 
 #define DBG             DEBUG_3
 

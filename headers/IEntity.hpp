@@ -7,7 +7,7 @@
 #ifndef DUNJONEER_IENTITY_HPP
 #define DUNJONEER_IENTITY_HPP
 
-#include "customMacro.h"
+#include <customMacro.h>
 
 class IEntity
 {

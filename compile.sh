@@ -2,5 +2,5 @@
 
 mkdir build
 cd build
-cmake ..
+CXX=clang++ cmake ..
 make
