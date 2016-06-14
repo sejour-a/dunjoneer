@@ -7,6 +7,8 @@
 #ifndef DUNJONEER_IENTITY_HPP
 #define DUNJONEER_IENTITY_HPP
 
+#include <string>
+
 #include <customMacro.h>
 
 class IEntity
@@ -19,6 +21,7 @@ public:
     virtual void    setPos      (   const   t_vec3df        &newPos     )   =   0;//DEFAULT//
     virtual void    setAcc      (   const   t_vec3df        &newAcc     )   =   0;//DEFAULT//
     virtual void    setSpeed    (   const   float           &newSpeed   )   =   0;//DEFAULT//
+    virtual void    setName     (   const   std::string     &newName    )   =   0;//DEFAULT//
     /////////////////////////////////////////////////////////////////////////////////////////
 
     ///////////
@@ -26,6 +29,8 @@ public:
     virtual t_vec3df    const   &getPos()   const   =   0;//DEFAULT//
     virtual t_vec3df    const   &getAcc()   const   =   0;//DEFAULT//
     virtual float       const   &getSpeed() const   =   0;//DEFAULT//
+    virtual std::string const   &getType()  const   =   0;//DEFAULT//
+    virtual std::string const   &getName()  const   =   0;//DEFAULT//
     /////////////////////////////////////////////////////////////////
 };
 

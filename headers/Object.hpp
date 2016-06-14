@@ -13,6 +13,10 @@ private:
     Object();   //Illegal call
 
 protected:
+    //OTHER STUFF
+    std::string     _type;
+    std::string     _name;
+
     //IRRLICHT UTILITIES
     t_irrDevice     *_device;
     t_sManager      *_sceneManager;
@@ -35,6 +39,7 @@ public:
     virtual void    setPos      (   const   t_vec3df        &newPos     );//DEFAULT//
     virtual void    setAcc      (   const   t_vec3df        &newAcc     );//DEFAULT//
     virtual void    setSpeed    (   const   float           &newSpeed   );//DEFAULT//
+    virtual void    setName     (   const   std::string     &newName    );//DEFAULT//
     /////////////////////////////////////////////////////////////////////////////////
 
     ///////////
@@ -42,6 +47,8 @@ public:
     virtual t_vec3df    const   &getPos()   const;//DEFAULT//
     virtual t_vec3df    const   &getAcc()   const;//DEFAULT//
     virtual float       const   &getSpeed() const;//DEFAULT//
+    virtual std::string const   &getType()  const;//DEFAULT//
+    virtual std::string const   &getName()  const;//DEFAULT//
     /////////////////////////////////////////////////////////
 };
 
