@@ -7,9 +7,10 @@
 #ifndef DUNJONEER_IENTITY_HPP
 #define DUNJONEER_IENTITY_HPP
 
+#include <irrlicht.h>
 #include <string>
 
-#include <customMacro.h>
+#include <customMacro.hh>
 
 class IEntity
 {

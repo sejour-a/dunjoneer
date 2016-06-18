@@ -2,6 +2,7 @@ language: cpp
 
 os:
   - linux
+  - osx
 
 compiler:
   - clang
@@ -9,24 +10,22 @@ compiler:
 
 before_install:
   # g++4.8.1
-  - if [ "$CXX" == "g++" ]; then sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test; fi
+  - if [ "$OSTYPE" == "linux-gnu" ]; then if [ "$CXX" == "g++" ]; then sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test; fi; fi
 
   # clang 3.4
-  - if [ "$CXX" == "clang++" ]; then sudo add-apt-repository -y ppa:h-rayflood/llvm; fi
+  - if [ "$OSTYPE" == "linux-gnu" ]; then if [ "$CXX" == "clang++" ]; then sudo add-apt-repository -y ppa:h-rayflood/llvm; fi; fi
 
-  - sudo apt-get update -qq
+  - if [ "$OSTYPE" == "linux-gnu" ]; then sudo apt-get update -qq; fi
 
 install:
   # g++4.8.1
-  - if [ "$CXX" = "g++" ]; then sudo apt-get install -qq g++-4.8; fi
-  - if [ "$CXX" = "g++" ]; then export CXX="g++-4.8"; fi
+  - if [ "$OSTYPE" == "linux-gnu" ]; then if [ "$CXX" = "g++" ]; then sudo apt-get install -qq g++-4.8; export CXX="g++-4.8"; fi; fi
 
   # clang 3.4
-  - if [ "$CXX" == "clang++" ]; then sudo apt-get install --allow-unauthenticated -qq clang-3.4; fi
-  - if [ "$CXX" == "clang++" ]; then export CXX="clang++-3.4"; fi
+  - if [ "$OSTYPE" == "linux-gnu" ]; then if [ "$CXX" == "clang++" ]; then sudo apt-get install --allow-unauthenticated -qq clang-3.4; export CXX="clang++-3.4"; fi; fi
 
   # IrrLicht
-  - sudo apt-get install libirrlicht-dev
+  - if [ "$OSTYPE" == "linux-gnu" ]; then sudo apt-get install libirrlicht-dev; else; brew install irrlicht; fi
 
 before_script:
   - mkdir build

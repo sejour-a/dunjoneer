@@ -2,8 +2,8 @@
 // Created by Alexandre Sejournant on 09/06/2016.
 //
 
-#ifndef DUNJONEER_COLORS_H
-#define DUNJONEER_COLORS_H
+#ifndef DUNJONEER_COLORS_HH
+#define DUNJONEER_COLORS_HH
 
 #define RED     "\x1B[31m"
 #define GREEN   "\x1B[32m"
@@ -15,4 +15,4 @@
 
 #define COLOR_RESET   "\x1B[0m"
 
-#endif //!DUNJONEER_COLORS_H
+#endif //!DUNJONEER_COLORS_HH

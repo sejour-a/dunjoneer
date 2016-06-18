@@ -2,13 +2,12 @@
 // Created by Alexandre Sejournant on 09/06/2016.
 //
 
-#include <Object.hpp>
-
 #include <iostream>
 
-#include <debug.h>
-#include <colors.h>
-#include <customMacro.h>
+#include <Object.hpp>
+
+#include <debug.hh>
+#include <colors.hh>
 
 Object::Object(t_irrDevice *newDevice)
 {

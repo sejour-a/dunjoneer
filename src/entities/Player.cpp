@@ -6,8 +6,8 @@
 
 #include <iostream>
 
-#include <debug.h>
-#include <colors.h>
+#include <debug.hh>
+#include <colors.hh>
 
 Player::Player(t_irrDevice *newDevice): Object(newDevice)
 {
