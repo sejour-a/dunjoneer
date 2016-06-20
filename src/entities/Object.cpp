@@ -47,9 +47,10 @@ Object::Object(t_irrDevice *newDevice)
 
     _positionVector     =   t_vec3df(0, 0, 0);
     _accelerationVector =   t_vec3df(0, 0, 0);
-    _movementSpeed      =   .0f;
+    _movementSpeed      =   0.01f;
     _standingAnimation  =   0;
     _walkingAnimation   =   0;
+    _node               =   0;
 }
 
 Object::~Object()
@@ -159,6 +160,12 @@ void    Object::setName     (const  std::string &newName)
     _name               =   newName;
 }
 
+void    Object::setCurrentNode  (const  std::string &nodeName)
+{
+            if  (nodeName == "standing" )   _node   =   _standingAnimationNode  ;
+    else    if  (nodeName == "walking"  )   _node   =   _walkingAnimationNode   ;
+}
+
 //GETTERS
 
 const   t_vec3df    &Object::getPos()   const
@@ -214,4 +221,23 @@ const   std::string &Object::getName()  const
     }
 
     return  _name;
+}
+
+//SYSTEM
+
+void    Object::updatePosition()
+{
+    if  (DBG >= DEBUG_3)
+        std::cerr << YELLOW << "Updated " << _name << " position" << COLOR_RESET << std::endl << std::endl;
+
+    _positionVector += (_accelerationVector * _movementSpeed);
+    _node->setPosition(_positionVector);
+}
+
+void    Object::loadStandingMesh(const std::string &modelName)
+{
+    _standingAnimation = _sceneManager->getMesh(std::string("./media/" + modelName + ".ms3d").c_str());
+    _standingAnimationNode = _sceneManager->addAnimatedMeshSceneNode(_standingAnimation);
+    _standingAnimationNode->setMaterialFlag(irr::video::EMF_LIGHTING, false);
+    _standingAnimationNode->setMaterialTexture(0, _sceneManager->getVideoDriver()->getTexture(std::string("./media/" + modelName + ".png").c_str()));
 }

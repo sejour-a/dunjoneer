@@ -25,15 +25,13 @@ set(CMAKE_EXE_LINKER_FLAGS  "${CMAKE_EXE_LINKER_FLAGS}  -std=c++11 -o2" )
 
 set(DUNJONEER_SOURCE_FILES
         src/main.cpp
+        src/MovementUpdater.cpp
         src/entities/Object.cpp
         src/entities/Player.cpp)
 
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 
-add_executable(dunjoneer
-        WIN32
-        MACOSX_BUNDLE
-        ${DUNJONEER_SOURCE_FILES})
+add_executable(dunjoneer WIN32 MACOSX_BUNDLE ${DUNJONEER_SOURCE_FILES})
 
 target_link_libraries(dunjoneer
         ${IRRLICHT_LIBRARY}
