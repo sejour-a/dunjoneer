@@ -8,6 +8,7 @@
 #include <algorithm>
 #include <cctype>
 #include <ini.h>
+#include <cstdlib>
 #include <INIReader.hpp>
 
 using std::string;
