@@ -15,7 +15,7 @@ int     main(void)
 
     device->setWindowCaption(L"dunjoneer");
 
-    Settings    lol((const std::string &) "dunjoneer.ini");
+    Settings    lol((const std::string &) "./config/dunjoneer.ini");
     EntityList list;
     Player *test = new Player(device);
     list.addEntity(test);

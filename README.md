@@ -12,4 +12,5 @@ Build status on OSX/Linux:
 My code is under MIT license, but:
 
 [`./cmake/FindIrrlicht.cmake`](./cmake/FindIrrlicht.cmake) is by [Andreas Schneider](https://de.linkedin.com/in/cryptomilk), and under BSD license.
+
 [`./src/INIReader.cpp`](./src/INIReader.cpp) and [`./headers/INIReader.hpp`](./headers/INIReader.hpp) are by [Ben Hoyt](http://benhoyt.com/), and under BSD license.
