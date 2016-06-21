@@ -11,7 +11,8 @@
 
 Player::Player(t_irrDevice *newDevice): Object(newDevice)
 {
-    _type   =   "PLAYER";
+    _type   =   (const std::string &) "PLAYER";
+    _name   =   (const std::string &) "Player";
     if (DBG >= DEBUG_1)
         std::cerr << YELLOW << ">Object is type " << CYAN << "[" << _type << "]" << COLOR_RESET << std::endl << std::endl;
 }

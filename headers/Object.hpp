@@ -13,7 +13,7 @@ private:
     Object();   //Illegal call
 
 protected:
-    //OTHER STUFF
+    //ID stuff
     std::string     _type;
     std::string     _name;
 
