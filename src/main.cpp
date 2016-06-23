@@ -1,23 +1,30 @@
 //MAIN_CPP_
 
 #include <Player.hpp>
-#include <Settings.hpp>
 #include <EntityList.hpp>
 
 #include <iostream>
 
 int     main(void)
 {
-    irr::IrrlichtDevice *device = irr::createDevice(irr::video::EDT_OPENGL, irr::core::dimension2d<irr::u32>(1600, 900), 32, false, false, false, 0);
+    Settings    *config =   new Settings((const std::string &) "./config/dunjoneer.ini");
+
+    irr::IrrlichtDevice *device = irr::createDevice(config->getDriver(),
+                                                    config->getResolution(),
+                                                    config->getColorDepth(),
+                                                    config->getFullscreen(),
+                                                    config->getStencilBuffer(),
+                                                    config->getVSync(),
+                                                    0);
 
     if  (!device)
         return 1;
 
     device->setWindowCaption(L"dunjoneer");
 
-    Settings    lol((const std::string &) "./config/dunjoneer.ini");
+    Player *test        =   new Player(device, config);
+
     EntityList list;
-    Player *test = new Player(device);
     list.addEntity(test);
 
     irr::scene::ICameraSceneNode *cam = device->getSceneManager()->addCameraSceneNodeFPS();
@@ -26,7 +33,7 @@ int     main(void)
 
     test->loadStandingMesh((const std::string &) "crystal");
     test->setAcc(t_vec3df(1,1,1));
-    test->setSpeed(0.5f);
+    test->setSpeed(0.0f);
     test->setCurrentNode((const std::string &) "standing");
 
     while   (device->run())

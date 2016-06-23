@@ -6,6 +6,7 @@
 #define DUNJONEER_OBJECT_HPP
 
 #include <IEntity.hpp>
+#include <Settings.hpp>
 
 class Object : public IEntity
 {
@@ -13,6 +14,9 @@ private:
     Object();   //Illegal call
 
 protected:
+    //SETTINGS
+    Settings        *_config;
+
     //ID stuff
     std::string     _type;
     std::string     _name;
@@ -34,7 +38,7 @@ protected:
     t_node          *_node;
 
 public:
-                    Object(t_irrDevice *newDevice);
+                    Object(t_irrDevice *newDevice, Settings *config);
     virtual         ~Object();
 
     ///////////

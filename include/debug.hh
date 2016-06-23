@@ -10,6 +10,6 @@
 #define DEBUG_2         0x2
 #define DEBUG_3         0x3
 
-#define DBG             DEBUG_3
+#define DBG             DEBUG_2
 
 #endif //!DUNJONEER_DEBUG_H

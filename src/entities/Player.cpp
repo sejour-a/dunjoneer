@@ -9,7 +9,7 @@
 #include <debug.hh>
 #include <colors.hh>
 
-Player::Player(t_irrDevice *newDevice): Object(newDevice)
+Player::Player(t_irrDevice *newDevice, Settings *config): Object(newDevice, config)
 {
     _type   =   (const std::string &) "PLAYER";
     _name   =   (const std::string &) "Player";

@@ -9,7 +9,7 @@
 #include <debug.hh>
 #include <colors.hh>
 
-Object::Object(t_irrDevice *newDevice)
+Object::Object(t_irrDevice *newDevice, Settings *config)
 {
     if (DBG >= DEBUG_1)
         std::cerr << CYAN << ">Creating new object" << COLOR_RESET << std::endl;
@@ -47,6 +47,7 @@ Object::Object(t_irrDevice *newDevice)
 
     _positionVector         =   t_vec3df(0, 0, 0);
     _accelerationVector     =   t_vec3df(0, 0, 0);
+    _config                 =   config;
     _movementSpeed          =   0.01f;
     _standingAnimation      =   0;
     _standingAnimationNode  =   0;
@@ -197,10 +198,10 @@ void    Object::loadStandingMesh(const std::string &modelName)
     if  (DBG >= DEBUG_2)
         std::cerr << YELLOW << ">Configuring model\t" << MAGENTA << modelName << COLOR_RESET << std::endl;
     _standingAnimationNode->setMaterialFlag(irr::video::EMF_LIGHTING, false);
-    _standingAnimationNode->setMaterialFlag(irr::video::EMF_ANISOTROPIC_FILTER, true);
-    _standingAnimationNode->setMaterialFlag(irr::video::EMF_ANTI_ALIASING, true);
-    _standingAnimationNode->setMaterialFlag(irr::video::EMF_BILINEAR_FILTER, false);
-    _standingAnimationNode->setMaterialFlag(irr::video::EMF_TRILINEAR_FILTER, true);
+    _standingAnimationNode->setMaterialFlag(irr::video::EMF_ANISOTROPIC_FILTER, _config->getAnisotropic()   );
+    _standingAnimationNode->setMaterialFlag(irr::video::EMF_ANTI_ALIASING,      _config->getAntiAliasing()  );
+    _standingAnimationNode->setMaterialFlag(irr::video::EMF_BILINEAR_FILTER,    _config->getBilinear()      );
+    _standingAnimationNode->setMaterialFlag(irr::video::EMF_TRILINEAR_FILTER,   _config->getTrilinear()     );
 
     if  (DBG >= DEBUG_2)
         std::cerr << YELLOW << ">Loading texture\t" << MAGENTA << modelName << COLOR_RESET << std::endl << std::endl;
