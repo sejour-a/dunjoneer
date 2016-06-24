@@ -24,10 +24,10 @@ set(CMAKE_CXX_FLAGS_DEBUG   "${CMAKE_CXX_FLAGS} -std=c++11 -o2 -Wall"   )
 set(CMAKE_EXE_LINKER_FLAGS  "${CMAKE_EXE_LINKER_FLAGS}  -std=c++11 -o2" )
 
 set(DUNJONEER_SOURCE_FILES
-        src/ini.c
+        inih/ini.c
         src/main.cpp
         src/Settings.cpp
-        src/INIReader.cpp
+        inih/INIReader.cpp
         src/EntityList.cpp
         src/entities/Object.cpp
         src/entities/Player.cpp)

@@ -6,7 +6,7 @@
 #include <iostream>
 
 #include <Settings.hpp>
-#include <INIReader.hpp>
+#include "../inih/INIReader.hpp"
 
 #include <colors.hh>
 #include <debug.hh>
