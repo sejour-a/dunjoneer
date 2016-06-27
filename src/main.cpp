@@ -29,11 +29,9 @@ int     main(void)
 
     irr::scene::ICameraSceneNode *cam = device->getSceneManager()->addCameraSceneNodeFPS();
     cam->setPosition(t_vec3df(20, 10, 20));
-    cam->setTarget(t_vec3df(0,0,0));
+    cam->setTarget(t_vec3df(0, 0, 0));
 
-    test->loadStandingMesh((const std::string &) "crystal");
-    test->setAcc(t_vec3df(1,1,1));
-    test->setSpeed(0.0f);
+    test->loadStandingMesh((const std::string &) "ring");
     test->setCurrentNode((const std::string &) "standing");
 
     while   (device->run())
