@@ -20,16 +20,13 @@ EntityList::~EntityList()
 void    EntityList::addEntity(Object *newObject)
 {
     if (DBG >= DEBUG_3)
-        std::cerr << YELLOW << ">Adding " << CYAN << newObject->getName() << YELLOW << " to entity list" << COLOR_RESET << std::endl << std::endl;
+        std::cerr << YELLOW << ">Adding " << CYAN << newObject->getName() << YELLOW << " to entity list" << COLOR_RESET << std::endl;
 
     _objectList.push_back(newObject);
 }
 
 void    EntityList::updatePosition()
 {
-    for (std::vector<Object *>::iterator i = _objectList.begin(); i != _objectList.end(); ++i)
-    {
-        Object *tmp = *i;
-        tmp->updatePosition();
-    }
+    for (std::vector<Object *>::iterator it = _objectList.begin(); it != _objectList.end(); ++it)
+        (*it)->updatePosition();
 }

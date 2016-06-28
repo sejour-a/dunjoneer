@@ -8,6 +8,7 @@
 #include <irrlicht.h>
 #include <EDriverTypes.h>
 #include <string>
+#include <map>
 
 #include <customMacro.hh>
 
@@ -24,10 +25,25 @@ private:
     bool    _bilinearFilter;
     bool    _trilinearFilter;
 
-    irr::video::E_DRIVER_TYPE           _driver;
+    std::string _mapFolder;
+    std::string _modelFolder;
+    std::string _textureFolder;
+    std::string _modelconfigFolder;
+
+    irr::video::E_DRIVER_TYPE           _driverType;
     irr::core::dimension2d<irr::u32>    _resolution;
 
     irr::u32    _colorDepth;
+
+    std::map<std::string, t_mesh *> _models;
+    std::map<std::string, irr::video::ITexture *> _textures;
+
+
+    void    _load(const std::string &modelconfig);
+
+    t_irrDevice                 *_device;
+    irr::video::IVideoDriver    *_driver;
+    t_sManager                  *_sceneManager;
 
 public:
     Settings(const  std::string &configFile);
@@ -40,6 +56,10 @@ public:
     const   bool    &getAnisotropic()   const;
     const   bool    &getAntiAliasing()  const;
     const   bool    &getStencilBuffer() const;
+
+    void    setDevice(irr::IrrlichtDevice *newDevice);
+
+    void    loadModels();
 
     const   irr::video::E_DRIVER_TYPE           &getDriver()        const;
     const   irr::core::dimension2d<irr::u32>    &getResolution()    const;

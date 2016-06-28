@@ -21,24 +21,18 @@ protected:
     std::string     _type;
     std::string     _name;
 
-    //IRRLICHT UTILITIES
-    t_irrDevice     *_device;
-    t_sManager      *_sceneManager;
-
     //POSITION SYSTEM
-    t_vec3df        _positionVector;
-    t_vec3df        _accelerationVector;
-    float           _movementSpeed;
+    t_vec3df        _position;
+    t_vec3df        _acceleration;
+    float           _speed;
 
     //OBJECT CLASS REQUIREMENTS
-    t_mesh          *_standingAnimation;
-    t_node          *_standingAnimationNode;
-    t_mesh          *_walkingAnimation;
-    t_node          *_walkingAnimationNode;
+    t_mesh          *_walk;
+    t_mesh          *_stand;
     t_node          *_node;
 
 public:
-                    Object(t_irrDevice *newDevice, Settings *config);
+                    Object(Settings *config);
     virtual         ~Object();
 
     ///////////
@@ -47,7 +41,6 @@ public:
     virtual void    setAcc          (   const   t_vec3df        &newAcc     );//DEFAULT//
     virtual void    setSpeed        (   const   float           &newSpeed   );//DEFAULT//
     virtual void    setName         (   const   std::string     &newName    );//DEFAULT//
-    virtual void    setCurrentNode  (   const   std::string     &nodeName   );//DEFAULT//
     /////////////////////////////////////////////////////////////////////////////////////
 
     ///////////
@@ -60,10 +53,9 @@ public:
     /////////////////////////////////////////////////////////////
 
     //////////
-    //SYSTEM////////////////////////////////////////////////////////////////////////
-    virtual void    updatePosition      (                               );//SYSTEM//
-    virtual void    loadStandingMesh    (const  std::string &fileName   );//SYSTEM//
-    ////////////////////////////////////////////////////////////////////////////////
+    //SYSTEM/////////////////////////////////////
+    virtual void    updatePosition  ();//SYSTEM//
+    /////////////////////////////////////////////
 };
 
 #endif //DUNJONEER_OBJECT_HPP

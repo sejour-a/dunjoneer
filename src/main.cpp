@@ -22,17 +22,13 @@ int     main(void)
 
     device->setWindowCaption(L"dunjoneer");
 
-    Player *test        =   new Player(device, config);
+    config->setDevice(device);
+    config->loadModels();
+
+    Player *steven  =   new Player(config);
 
     EntityList list;
-    list.addEntity(test);
-
-    irr::scene::ICameraSceneNode *cam = device->getSceneManager()->addCameraSceneNodeFPS();
-    cam->setPosition(t_vec3df(20, 10, 20));
-    cam->setTarget(t_vec3df(0, 0, 0));
-
-    test->loadStandingMesh((const std::string &) "ring");
-    test->setCurrentNode((const std::string &) "standing");
+    list.addEntity(steven);
 
     while   (device->run())
     {

@@ -12,6 +12,7 @@
 class   EntityList
 {
 private:
+
     std::vector<Object *> _objectList;
 
 public:

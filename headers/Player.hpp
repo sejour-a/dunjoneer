@@ -10,7 +10,7 @@
 class Player : public Object
 {
 public:
-    Player(t_irrDevice *newDevice, Settings *config);
+    Player(Settings *config);
 };
 
 #endif //DUNJONEER_PLAYER_HPP
