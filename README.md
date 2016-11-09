@@ -1,5 +1,16 @@
 # dunjoneer
-A simple game. This is just a big test, don't expect much.
+Meant to be a simple game.
+
+Dunjoneer was supposed to be a game in and of itself, but it finished as a base for Irrlicht games.
+It was a test to see how Irrlicht worked, and how to build with it.
+
+I highly recommend Irrlicht as a game engine for new coders, as it's easy to use and cross-platforms.
+
+My code may help you understand the engine, but the Irrlicht website's tutorial and documentation
+are really well done, and I can only recommend it. Also, I am not certain it did everything correctly,
+so don't take my code as reference.
+
+
 
 The whole thing will only require Irrlicht, and shall be compatible with Linux and Mac OSX.
 
